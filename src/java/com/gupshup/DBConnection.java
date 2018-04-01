@@ -5,31 +5,48 @@
  */
 package com.gupshup;
 
-import com.mysql.jdbc.Connection;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 /**
  *
  * @author shreyash
  */
 public class DBConnection {
-    private static Connection con;
-    private static DBConnection instance;
+    private static Connection con = null;
+    private static DBConnection instance = null;
+    private static String url = "jdbc:mysql://localhost:3306/gupshup";
+    private static String uname = "root";
+    private static String pwd = "shreyash@123";
+    
+    
+//    static DBConnection getInstance(){
+//        if(instance == null){
+//            instance = new DBConnection();
+//        }
+//        return instance;
+//    }
     static Connection getConnection(){
-        if(instance == null){
-            DBConnection db = new DBConnection();
-            db.openConnection();
+        if(con == null){
+            return openConnection();
         }
         return con;
     }
     static Connection openConnection(){
         try {
-            Class.forName("com.jdbc.mysql.Driver");
-        } catch (ClassNotFoundException ex) {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection(url,uname,pwd);
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return con;
+    }
+    static void closeConnection(){
+        try{
+            con.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     
 }
