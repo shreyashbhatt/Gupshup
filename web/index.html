@@ -12,23 +12,47 @@ and open the template in the editor.
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
+        <nav class="navbar navbar-light bg-light justify-content-between" style="margin-bottom: 100px;">
+            <a class="navbar-brand">Logo</a>
+            <form class="form-inline" id="loginForm">
+                <input class="form-control mr-sm-2" type="text" placeholder="Username">
+                <input class="form-control mr-sm-2" type="password" placeholder="Password">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+            </form>
+        </nav>
        <div class="container">
            <div class="row">
                <div class="card offset-md-3 col-md-6">
-                   <form action="register.jsp">
                        <div class="container">
                            <div class="row">
                                <div class="col-md-10 offset-md-1">
-                                    <input type="text" class="input" name="uname" placeholder="Enter UserName">
-                                    <input type="text" class="input" name="uemail" placeholder="Enter Email">
-                                    <input type="password" class="input" name="upwd" placeholder="Enter Password">
-                                    <input type="submit" class="btn btn-primary" value="Submit">
+                                    <h3 class="text-center" style="padding: 20px">Sign Up!</h3>
+                                    <form method="POST" id="registerForm">
+                                        <div class="form-group">
+                                            <label for="uemail">Email address</label>
+                                            <input type="email" class="form-control" id="uemail" name="uemail" placeholder="Enter email" />
+                                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-check-label" for="uname">Username</label>
+                                            <input type="text" class="form-control" id="uname" name="uname"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="upwd">Password</label>
+                                            <input type="password" class="form-control" name="upwd" id="upwd" placeholder="Password" />
+                                        </div>
+                                        <button type="submit" class="btn btn-primary offset-4 col-4" style="margin-bottom: 20px;">Signup</button>
+                                    </form>
                                </div>
                            </div>
-                       </div>  
-                   </form>
+                       </div>
                </div>
            </div>
        </div>
+        <!--        jQuery include      -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+        <script src="assets/js/userManage.js"></script>
     </body>
 </html>
