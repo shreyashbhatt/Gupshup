@@ -14,9 +14,9 @@ and open the template in the editor.
     <body>
         <nav class="navbar navbar-light bg-light justify-content-between" style="margin-bottom: 100px;">
             <a class="navbar-brand">Logo</a>
-            <form class="form-inline" id="loginForm">
-                <input class="form-control mr-sm-2" type="text" placeholder="Username">
-                <input class="form-control mr-sm-2" type="password" placeholder="Password">
+            <form method="POST" action="login.jsp" class="form-inline" id="loginForm">
+                <input class="form-control mr-sm-2" type="text" placeholder="Username" name="uname">
+                <input class="form-control mr-sm-2" type="password" placeholder="Password" name="upwd">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
             </form>
         </nav>
